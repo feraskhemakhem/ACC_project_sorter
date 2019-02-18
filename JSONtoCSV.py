@@ -1,12 +1,28 @@
 import json
 import csv
 
-def read_settings_data_json(jsonfilepath, csvfilepath):
-	print("running read_settings_data...")
+def read_json(filepath):
+	print("reading from", filepath)
+
 	# open json, read from it, close it
-	file = open(jsonfilepath, 'r', encoding='utf-8')
+	file = open(filepath, 'r', encoding='utf-8')
 	data = json.load(file)
 	file.close()
+	return data
+
+def concat_csv(csvfilepath):
+	print("concatinating csv files...")
+	with open(csvfilepath, 'r', newline = '') as csvfile:
+		csvreader = csv.reader(csvfile, quotechar = ',')
+		for entry in csvreader:
+			print(entry)
+
+	return
+
+def write_csv(jsonfilepath, csvfilepath):
+	print("writing to", csvfilepath)
+	# open json, read from it, close it
+	data = read_json(jsonfilepath)
 
 	#open csv
 	with open(csvfilepath, 'w', newline = '') as csvfile:
@@ -29,6 +45,8 @@ def read_settings_data_json(jsonfilepath, csvfilepath):
 # main function
 if __name__ == "__main__":
 	jsonfilename = "sample/output.json"
-	csvfilename = "sample/projectlist.csv"
+	outputfilename = "sample/projectlist.csv"
+	concatfilename = "sample/returninglist.csv"
 
-	read_settings_data_json(jsonfilename, csvfilename)
+	#write_csv(jsonfilename, outputfilename)
+	concat_csv(concatfilename)
