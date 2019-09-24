@@ -360,4 +360,8 @@ healthchecksdb
 # Whatever the heck source is
 source
 
+# Ignores the input and output files
+*.json
+*.csv
+
 # End of https://www.gitignore.io/api/visualstudio,visualstudiocode
