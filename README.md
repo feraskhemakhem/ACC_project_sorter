@@ -1,4 +1,4 @@
-# ACCJSONParser
+# ACC Project Member Sorter
 JSON Parser specific for file types used in Aggie Coding Club project organizing. Additional features include a Slack bot that creates channels and adds members to them given the output JSON.
 
 
