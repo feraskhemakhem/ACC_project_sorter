@@ -1,6 +1,6 @@
 import json
 import csv
-from slack_bot import init_channel
+# from slack_bot import init_channel
 
 #### helper functions ####
 def read_json(filepath):
@@ -24,11 +24,11 @@ def concat_csv(csvfilepath):
 
 #### main functions ####
 def write_csv(jsonfilepath, csvfilepath):
-	print("writing to", csvfilepath)
 	# open json, read from it, close it
 	data = read_json(jsonfilepath)
 
 	# open csv
+	print("writing to", csvfilepath)
 	with open(csvfilepath, 'w', newline = '') as csvfile:
 		csvwriter = csv.writer(csvfile, quotechar = ',', quoting = csv.QUOTE_MINIMAL)
 		csvwriter.writerow(['Project Name', 'Project Manager', 'Team Member', 'Member Email', 'Slack Username'])
@@ -40,7 +40,7 @@ def write_csv(jsonfilepath, csvfilepath):
 
 			# add members
 			for user in data[project]["members"]:
-				print("user is", user["name"])
+				# print("user is", user["name"])
 				csvwriter.writerow(['', '', user["name"], user["email"], user["slack"]])
 
 	return
@@ -51,7 +51,7 @@ def read_csv():
 	return
 
 # calls slack bot to add people to channels
-def signal_slack_bot():
+# def signal_slack_bot():
 
 
 
@@ -60,10 +60,10 @@ def signal_slack_bot():
 
 # main function
 if __name__ == "__main__":
-	jsonfilename = "sample/output.json"
-	outputfilename = "sample/projectlist.csv"
-	concatfilename = "sample/returninglist.csv"
+	jsonfilename = "output/sorted_groups.json"
+	outputfilename = "output/project_list.csv"
+	# concatfilename = "output/full_list.csv"
 
 	write_csv(jsonfilename, outputfilename)
 	# concat_csv(concatfilename)
-	signal_slack_bot(outputfilename)
+	# signal_slack_bot(outputfilename)
