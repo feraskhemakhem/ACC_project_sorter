@@ -17,14 +17,16 @@ X_LARGE = 0.14
 
 PROJECT_MAP = {
     "Voxel Engine (LO)": {"_id": 0, "size": SMALL},
-    "Financial Web App (PO)": {"_id": 1, "size": LARGE},
+    "Finance Web App (PO)": {"_id": 1, "size": LARGE},
     "GrocerEZ (LO)": {"_id": 2, "size": MEDIUM},
     "Random Conlang Generator (LO)": {"_id": 3, "size": MEDIUM},
-    "Leetcode (LO)": {"_id": 4, "size": LARGE},
+    "LeetCamp (LO)": {"_id": 4, "size": LARGE},
     "Meal Maximizer (LO)": {"_id": 5, "size": SMALL},
     "Dungeons and Debugging (LO)": {"_id": 6, "size": SMALL},
     "BugHunter (LO)": {"_id": 7, "size": MEDIUM},
     "Aggie Access (PO)": {"_id": 8, "size": SMALL},
+    "Study Buddy (LO)": {"_id": 9, "size": MEDIUM},
+
 }
 
 
@@ -76,11 +78,12 @@ def build_users(df):
     """
     ids = defaultdict(lambda: len(ids))
     everybody = {}
-    for (
+    for ( # this has to match columns in load_csv
         _,
         timestamp,
-        email,
+        _,
         name,
+        email,
         slack,
         first_choice,
         second_choice,
@@ -157,5 +160,5 @@ for row, col in zip(row_indices, column_indices):
         teams[key]["members"].append(users[row].dictify())
     raw_row += 1
 
-json.dump(teams, open("../output/sorted_groups.json", "w+"))
+json.dump(teams, open("../data/sorted_groups.json", "w+"))
 print("Allocation successful. Output can be found in 'output.json'")
