@@ -16,40 +16,15 @@ LARGE = 0.11
 X_LARGE = 0.14
 
 PROJECT_MAP = {
-    "Chip-8 Emulator (LO)": {"_id": 0, "size": SMALL},
-    "Basic (LO)": {"_id": 1, "size": SMALL},
-    "Media Tracker (LO)": {"_id": 2, "size": MEDIUM},
-    "Create Your First Website (LO)": {"_id": 3, "size": SMALL},
-    "Aggie Involvement Project (LO)": {"_id": 4, "size": MEDIUM},
-    "Tile Gallery App (LO)": {"_id": 5, "size": SMALL},
+    "Voxel Engine (LO)": {"_id": 0, "size": SMALL},
+    "Financial Web App (PO)": {"_id": 1, "size": LARGE},
+    "GrocerEZ (LO)": {"_id": 2, "size": MEDIUM},
+    "Random Conlang Generator (LO)": {"_id": 3, "size": MEDIUM},
+    "Leetcode (LO)": {"_id": 4, "size": LARGE},
+    "Meal Maximizer (LO)": {"_id": 5, "size": SMALL},
     "Dungeons and Debugging (LO)": {"_id": 6, "size": SMALL},
-    "Cloud Text Editor (LO)": {"_id": 7, "size": SMALL},
-    "Aggie Agenda (LO)": {"_id": 8, "size": SMALL},
-    "Leetcode Bootcamp (LO)": {"_id": 9, "size": X_LARGE},
-    "Fake News Detector (LO)": {"_id": 10, "size": MEDIUM},
-    "DevLink (PO)": {"_id": 11, "size": SMALL},
-    "MicroMouse Maze Solving Robot (PO)": {"_id": 12, "size": SMALL},
-    "BTHOspam (PO)": {"_id": 13, "size": SMALL},
-    "Aggie Tool Kit (PO/LO)": {"_id": 14, "size": SMALL},
-    "Club Website (PO)": {"_id": 15, "size": MEDIUM},
-    "Pegasus (PO)": {"_id": 16, "size": MEDIUM},
-    "Cross-Platform App for Aggie Coding Club (PO)": {"_id": 17, "size": MEDIUM},
-    "Morai (PO)": {"_id": 18, "size": SMALL},
-    "Automatic Aggie Scheduler (PO)": {"_id": 19, "size": MEDIUM},
-
-
-    # "AI-Snake": {"_id": 0, "size": MEDIUM},
-    # "Aggie Coding Club Website": {"_id": 1, "size": MEDIUM},
-    # "Aggie Tool Kit": {"_id": 2, "size": MEDIUM},
-    # "Barhoppery": {"_id": 3, "size": MEDIUM},
-    # "Chrome Calories": {"_id": 4, "size": MEDIUM},
-    # "Class Material Reminder": {"_id": 5, "size": MEDIUM},
-    # "Dog Nutrition +": {"_id": 6, "size": MEDIUM},
-    # "Easter Pop": {"_id": 7, "size": MEDIUM},
-    # "FlipFlop": {"_id": 8, "size": MEDIUM},
-    # "Hackathon Regristration System Project": {"_id": 9, "size": MEDIUM},
-    # "OneStop Notifications": {"_id": 10, "size": MEDIUM},
-    # "Safe Driving Detection System": {"_id": 11, "size": MEDIUM},
+    "BugHunter (LO)": {"_id": 7, "size": MEDIUM},
+    "Aggie Access (PO)": {"_id": 8, "size": SMALL},
 }
 
 
@@ -61,14 +36,15 @@ def load_csv(file_name):
     Returns:
         A pandas DataFrame.
     """
-    columns = [
+    columns = [ # changed every semester
         "Timestamp",
+        "Email Address",
         "What is your full name?",
+        "What is your TAMU email?",
+        "What is your Slack display name (not the same as full name - can be found under user settings)?",
         "Please choose your first pick!",
         "Please choose your second choice!",
         "Please choose your third choice!",
-        "What is your TAMU email?",
-        "What is your Slack display name (not the same as full name - can be found under user settings)?",
     ]
     return pd.read_csv(file_name, usecols=columns).fillna("")
 
@@ -163,7 +139,7 @@ def get_project(col):
 ##### TODO - create project map #####
 
 
-df = load_csv("data.csv")
+df = load_csv("../data/data.csv")
 users = build_users(df)
 
 cost_matrix = build_cost_matrix(users)
