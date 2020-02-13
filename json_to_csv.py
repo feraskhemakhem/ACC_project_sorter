@@ -60,9 +60,9 @@ def read_csv():
 
 # main function
 if __name__ == "__main__":
-	jsonfilename = "output/sorted_groups.json"
-	outputfilename = "output/project_list.csv"
-	# concatfilename = "output/full_list.csv"
+	jsonfilename = "data/sorted_groups.json"
+	outputfilename = "data/project_list.csv"
+	# concatfilename = "data/full_list.csv"
 
 	write_csv(jsonfilename, outputfilename)
 	# concat_csv(concatfilename)

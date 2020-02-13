@@ -14,11 +14,11 @@ Originally provided by Gabriel Britain (@SaltyQuetzals) and modified by me to be
 * "What is your TAMU email?"
 * "What is your Slack display name (not the same as full name - can be found under user settings)?"
 
-It then returns a JSON that organizers user schemas into project groups to _output/sorted_groups.json_.
+It then returns a JSON that organizers user schemas into project groups to _data/sorted_groups.json_.
 
 ### JSON-to-CSV Organizer
 
-This is a JSON parser that accepts the JSON files with the same structure as that of _output/sorted_groups.json_, which is created by the Hungarian sorting. It creates a CSV file _output/project_list.csv_ that is readible by project managers and members to be easily imported to Excel or Google Sheets.
+This is a JSON parser that accepts the JSON files with the same structure as that of _data/sorted_groups.json_, which is created by the Hungarian sorting. It creates a CSV file _output/project_list.csv_ that is readible by project managers and members to be easily imported to Excel or Google Sheets.
 
 ### Slack Channel Bot
 
